@@ -1,4 +1,5 @@
 FROM maven:3.5-jdk-8 as BUILD
+run git clone https://github.com/subieslaw/docker-presentation.git
 RUN mkdir -p /usr/src/myapp/src
 COPY src /usr/src/myapp/src
 COPY pom.xml /usr/src/myapp
