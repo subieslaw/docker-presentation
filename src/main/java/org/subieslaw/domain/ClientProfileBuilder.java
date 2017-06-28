@@ -14,7 +14,7 @@ public class ClientProfileBuilder {
         return this;
     }
 
-    public ClientProfile createKYC() {
+    public ClientProfile createClientProfile() {
         return new ClientProfile(id, name, creationTime);
     }
 }

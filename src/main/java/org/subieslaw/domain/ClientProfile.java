@@ -27,6 +27,8 @@ public class ClientProfile {
         return creationTime;
     }
 
-
+    public static ClientProfile create(String clientName){
+        return new ClientProfileBuilder().setName(clientName).createClientProfile();
+    }
 
 }
