@@ -1,32 +1,43 @@
 package org.subieslaw;
 
-import org.subieslaw.data.RedisService;
+import com.google.gson.Gson;
 import org.subieslaw.domain.ClientProfile;
-import javax.inject.Inject;
+import redis.clients.jedis.Jedis;
+
+import javax.annotation.PostConstruct;
 import javax.ws.rs.*;
 
 @Path("redis")
 public class Redis {
 
-
-    private RedisService redisService;
-
-    @Inject
-    public Redis(RedisService redisService){
-        this.redisService = redisService;
-    }
+    private Jedis redis = new Jedis("redis");;
 
     @GET
     @Produces("application/json")
     public ClientProfile getClientProfile(@QueryParam("kyc") String clientName) {
-        return redisService.readClientProfile(clientName);
+        return readClientProfile(clientName);
     }
 
     @POST
     @Produces("application/json")
     public ClientProfile createAndPersistClientProfile(@QueryParam("kyc") String clientName) {
-        return redisService.createAndPersistClientProfile(clientName);
+        return createAndPersist(clientName);
     }
 
+    private void save(ClientProfile clientProfile){
+        redis.set(clientProfile.getId().toString(), new Gson().toJson(clientProfile));
+    }
+
+    private ClientProfile readClientProfile(String clientName) {
+        String redisValue = redis.get(clientName);
+        return new Gson().fromJson(redisValue,ClientProfile.class);
+    }
+
+    private ClientProfile createAndPersist(String clientName) {
+        ClientProfile clientProfile = ClientProfile.create(clientName);
+        save(clientProfile);
+        return clientProfile;
+
+    }
 
 }

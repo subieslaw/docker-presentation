@@ -5,3 +5,7 @@ data-source add --jndi-name=java:/PostgresDS --name=PostgresPool --connection-ur
 
 curl 10.0.110.3:8080/docker-1.0-SNAPSHOT/api/kycrulez
 curl 10.0.110.3:8080/docker-1.0-SNAPSHOT/api/kycrulez
+
+
+curl localhost:9080/docker-1.0-SNAPSHOT/api/redios{"kyc":"123"}
+curl -X POST localhost:9080/docker-1.0-SNAPSHOT/api/redios{"kyc":"123"}
