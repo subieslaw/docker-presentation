@@ -5,9 +5,9 @@ import java.util.UUID;
 
 public class ClientProfile {
 
-    private UUID id;
-    private String name;
-    private LocalDateTime creationTime;
+    private final UUID id;
+    private final String name;
+    private final LocalDateTime creationTime;
 
     ClientProfile(UUID id, String name, LocalDateTime creationTime) {
         this.id = id;

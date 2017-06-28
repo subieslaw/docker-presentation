@@ -2,15 +2,14 @@ package org.subieslaw;
 
 import org.subieslaw.data.RedisService;
 import org.subieslaw.domain.ClientProfile;
-import org.subieslaw.domain.ClientProfileBuilder;
-
-import javax.ejb.EJB;
+import javax.inject.Inject;
 import javax.ws.rs.*;
 
 @Path("redis")
 public class Redis {
 
-    @EJB
+    @Inject
+    private final
     RedisService redisService;
 
     @GET

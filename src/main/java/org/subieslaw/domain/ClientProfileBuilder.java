@@ -5,9 +5,9 @@ import java.util.UUID;
 
 public class ClientProfileBuilder {
 
-    private UUID id = UUID.randomUUID();
+    private final UUID id = UUID.randomUUID();
     private String name;
-    private LocalDateTime creationTime = LocalDateTime.now();
+    private final LocalDateTime creationTime = LocalDateTime.now();
 
     public ClientProfileBuilder setName(String name) {
         this.name = name;
