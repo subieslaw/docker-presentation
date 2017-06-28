@@ -1,15 +1,16 @@
 package org.subieslaw.domain;
 
 import java.time.LocalDateTime;
+import java.util.Date;
 import java.util.UUID;
 
 public class ClientProfile {
 
     private final UUID id;
     private final String name;
-    private final LocalDateTime creationTime;
+    private final Date creationTime;
 
-    ClientProfile(UUID id, String name, LocalDateTime creationTime) {
+    ClientProfile(UUID id, String name, Date creationTime) {
         this.id = id;
         this.name = name;
         this.creationTime = creationTime;
@@ -23,8 +24,8 @@ public class ClientProfile {
         return name;
     }
 
-    public LocalDateTime getCreationTime() {
-        return creationTime;
+    public Date getCreationTime() {
+        return (Date) creationTime.clone();
     }
 
     public static ClientProfile create(String clientName){
