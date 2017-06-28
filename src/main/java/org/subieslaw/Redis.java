@@ -8,9 +8,13 @@ import javax.ws.rs.*;
 @Path("redis")
 public class Redis {
 
+
+    private RedisService redisService;
+
     @Inject
-    private final
-    RedisService redisService;
+    public Redis(RedisService redisService){
+        this.redisService = redisService;
+    }
 
     @GET
     @Produces("application/json")
