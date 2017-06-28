@@ -1,13 +1,14 @@
 package org.subieslaw.domain;
 
 import java.time.*;
+import java.util.Date;
 import java.util.UUID;
 
 public class ClientProfileBuilder {
 
     private final UUID id = UUID.randomUUID();
     private String name;
-    private final LocalDateTime creationTime = LocalDateTime.now();
+    private final Date creationTime = new Date();
 
     public ClientProfileBuilder setName(String name) {
         this.name = name;
