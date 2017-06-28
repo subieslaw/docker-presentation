@@ -5,7 +5,6 @@ import org.subieslaw.domain.KYCBuilder;
 
 import javax.ws.rs.*;
 
-@ApplicationPath("/")
 @Path("kycrulez")
 public class App {
 
