@@ -5,12 +5,16 @@ import org.subieslaw.domain.ClientProfile;
 import redis.clients.jedis.Jedis;
 
 import javax.annotation.PostConstruct;
+import javax.ejb.Stateless;
 import javax.ws.rs.*;
 
+@Stateless
 @Path("redis")
 public class Redis {
 
-    private Jedis redis = new Jedis("redis");;
+    private Jedis redis = new Jedis("redis");
+
+    public Redis() { }
 
     @GET
     @Produces("application/json")

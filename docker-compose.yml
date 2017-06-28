@@ -3,7 +3,7 @@ services:
   rest:
     build: .
     depends_on:
-    - redis:redis
+    - redis
     ports:
     - "8080:8080"
     networks:
