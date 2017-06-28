@@ -2,9 +2,24 @@ version: '2'
 services:
   rest:
     build: .
+ depends_on:
+      - redis:redis
     ports:
      - "8080:8080"
+    networks:
+    - frontend
     volumes:
      - .:/code
   redis:
     image: "redis"
+     networks:
+     - frontend
+  portainer:
+    image: portainer/portainer:latest
+     ports:
+     - 9080:9000
+     networks:
+     - frontend
+     stop_grace_period: 1m30s
+  networks:
+    frontend:
