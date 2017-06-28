@@ -7,7 +7,7 @@ import org.subieslaw.domain.ClientProfileBuilder;
 import javax.ejb.EJB;
 import javax.ws.rs.*;
 
-@Path("kycrulez")
+@Path("redis")
 public class Redis {
 
     @EJB
